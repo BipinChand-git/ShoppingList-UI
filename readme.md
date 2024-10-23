@@ -1,3 +1,3 @@
 # Shopping List
 
-This is the Shopping List UI in which you can add , remove items.
+This is the Fully Functional Shopping List UI Vanilla JS Project in which you can add,remove items.
