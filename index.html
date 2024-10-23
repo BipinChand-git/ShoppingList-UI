@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Shopping List</title>
+    </head>
+    <body>
+        <header>
+            <figure>
+                <img class="image" src="images/istockphoto-1256489977-612x612.jpg" alt="Shopping List" width="612px" height="612px">
+            </figure>
+            <h1 id="app-title">Shopping List</h1>
+        </header>
+        <main>
+            <form id="item-form">
+                <div class="form-control">
+                    <input type="text" placeholder="Enter Item" id="item-input" name="item"/>
+                </div>
+                <button type="Submit" class="btn">+Add Item</button>
+            </form>
+            <div class="filter">
+                <input type="text" id="filter" placeholder="Filter Items"/>
+            </div>
+        <div class="items"> 
+            <ul id="item-list">
+                <!-- Items -->
+                <li class="item">Apple <span class="cross">&#10060;</span></li>
+                <li class="item">Orange Juice <span class="cross">&#10060;</span></li>
+                <li class="item">Bananas <span class="cross">&#10060;</span></li>
+                <li class="item">Milk <span class="cross">&#10060;</span></li>
+            </ul>
+            <button id="clear" class="btn-clear">Clear All</button>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+</body>
+</html>
