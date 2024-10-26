@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
     padding: 1.5rem;
     margin: 1rem;
-    background-color: whitesmoke;
+    background-color: #EDF4F2;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -58,6 +58,21 @@ h1 {
     background-color: #000;
     box-shadow: 2px 2px 5px 1px #585757;
 }
+
+/* Items to Edit in JS */
+.edit-mode {
+    color: #3d3232;
+}
+
+.btn-style {
+    font-size: 1rem;
+    background-color: #0D3D00;
+    color: #EDF4F2;
+}
+.btn-style:hover {
+    background-color: #0D3D00;
+}
+
 
 .filter input{
     background-color: whitesmoke;

@@ -3,6 +3,8 @@ const itemInput = document.getElementById('item-input');
 const itemList = document.querySelector('#item-list');
 const clearBtn = document.querySelector('#clear');
 const filterBtn = document.querySelector('#filter');
+const formBtn = document.querySelector('.btn');
+let isEditMode = false;
 
 //Display Items From Local Storage--
 function displayItems() {
@@ -27,6 +29,24 @@ function OnSubmit(e) {
         return;
     }
 
+    // Check It's an Edit Mode or not--
+    if(isEditMode) {
+        const itemToEdit = itemList.querySelector('.edit-mode');
+        
+        removeItemFromStorage(itemToEdit.firstChild.textContent);
+        itemToEdit.classList.remove('edit-mode');
+        itemToEdit.remove();
+
+        isEditMode = false;
+    }
+    //check Duplicate items too-
+    else {
+        if(checkIfItemsExist(newItems)) {
+            alert('Item Already Exists!');
+            return;
+        }
+    }
+ 
     //Add Items to DOM--
     addItemsToDOM(newItems);
 
@@ -104,8 +124,25 @@ const removeItem = (e) => {
             const items = e.target.parentElement.firstChild.textContent;
             removeItemFromStorage(items);
         }
+        checkUI();
     }
-    checkUI();
+    // set Item For Edit--
+    else {
+        setItemToEdit(e.target);
+    }
+}
+
+function setItemToEdit(item) {
+    isEditMode = true;
+
+    document.querySelectorAll('li').forEach((i) => i.classList.remove('edit-mode'));
+    
+    item.classList.add('edit-mode');
+
+    formBtn.innerHTML = "&#9998; Edit Item";
+    formBtn.classList.add('btn','btn-style');
+
+    itemInput.value = item.firstChild.nodeValue;
 }
 
 // Remove Items from Local Storage---
@@ -134,6 +171,8 @@ const removeList = (e) => {
 
 //To clear filter and clearBtn if there is nothing in ul--
 function checkUI() {
+    itemInput.value = '';
+
     const items = document.querySelectorAll('li');
     if(items.length === 0) {
         clearBtn.style.display = 'none';
@@ -143,8 +182,23 @@ function checkUI() {
         clearBtn.style.display = 'block';
         filterBtn.style.display = 'block';
     }
+
+    formBtn.innerHTML = '+Add Item';
+    formBtn.classList.remove('btn-style');
+    isEditMode = false;
 }
 checkUI();
+
+// To check Duplicate Items--
+function checkIfItemsExist(item) {
+    const itemsFromStorage = getItemFromStorage();
+    if(itemsFromStorage.includes(item)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 function FilterItems(e) {
     const items = document.querySelectorAll('li');
