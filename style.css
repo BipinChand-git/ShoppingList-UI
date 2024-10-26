@@ -86,7 +86,7 @@ h1 {
     justify-content: space-between;
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px 1px #585757;
+    box-shadow: 2px 2px 20px 10px #ccc9c9;
 }
 
 .items li:hover {
@@ -106,7 +106,7 @@ h1 {
 
 .btn-clear:hover {
     background-color: #ccc;
-    box-shadow: 2px 2px 5px 1px #585757;
+    box-shadow: 2px 2px 5px #585757;
 }
 
 @media only screen and (min-width: 1024px) {
